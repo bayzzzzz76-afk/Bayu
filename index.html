@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<title>byyy'_Store</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap"
+  rel="stylesheet"
+>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+:root{
+  --sand:#F3EFE4;
+  --ink:#221F1A;
+  --cobalt:#2E4A82;
+  --blush:#E9C9AE;
+  --line:rgba(34,31,26,0.15);
+  --card:#FFFFFF;
+}
+
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+
+html{
+  scroll-behavior:smooth;
+}
+
+
+body{
+  background:var(--sand);
+  color:var(--ink);
+  font-family:'Work Sans',sans-serif;
+  font-weight:400;
+}
+
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+button{
+  font-family:inherit;
+}
+
+
+.display{
+  font-family:'Fraunces',serif;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:16px 20px;
+
+  background:var(--sand);
+
+  border-bottom:1px solid var(--line);
+}
+
+
+nav .logo{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:22px;
+  letter-spacing:.01em;
+}
+
+
+nav .logo span{
+  color:var(--cobalt);
+  font-style:italic;
+  font-weight:500;
+}
+
+
+/* =====================================================
+   CART BUTTON
+===================================================== */
+
+.cart-btn{
+  position:relative;
+
+  background:var(--ink);
+  color:var(--sand);
+
+  border:none;
+
+  padding:9px 16px;
+
+  font-size:12px;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  transition:.25s ease;
+}
+
+
+.cart-btn:hover{
+  background:var(--cobalt);
+}
+
+
+.cart-count{
+  position:absolute;
+
+  top:-8px;
+  right:-8px;
+
+  width:19px;
+  height:19px;
+
+  border-radius:50%;
+
+  background:var(--cobalt);
+  color:#fff;
+
+  font-size:10px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+  padding:60px 20px 40px;
+
+  text-align:left;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+.hero .eyebrow{
+  font-size:11px;
+
+  letter-spacing:.3em;
+
+  text-transform:uppercase;
+
+  color:var(--cobalt);
+
+  margin-bottom:10px;
+}
+
+
+.hero h1{
+  font-size:clamp(38px,11vw,54px);
+
+  font-weight:500;
+
+  line-height:1.02;
+
+  max-width:520px;
+}
+
+
+.hero h1 em{
+  font-style:italic;
+
+  color:var(--cobalt);
+}
+
+
+.hero p{
+  margin-top:16px;
+
+  max-width:340px;
+
+  font-size:14px;
+
+  opacity:.75;
+
+  line-height:1.7;
+}
+
+
+.hero .cta{
+  display:inline-block;
+
+  margin-top:24px;
+
+  background:var(--ink);
+
+  color:var(--sand);
+
+  padding:13px 28px;
+
+  font-size:12px;
+
+  letter-spacing:.1em;
+
+  text-transform:uppercase;
+
+  transition:.25s ease;
+}
+
+
+.hero .cta:hover{
+  background:var(--cobalt);
+}
+
+
+/* =====================================================
+   HERO CIRCLE
+===================================================== */
+
+.hero-line{
+  position:absolute;
+
+  right:-40px;
+  top:20px;
+
+  width:220px;
+  height:220px;
+
+  border:1px solid var(--line);
+
+  border-radius:50%;
+
+  pointer-events:none;
+}
+
+
+.hero-line::after{
+  content:'';
+
+  position:absolute;
+
+  inset:24px;
+
+  border:1px solid var(--cobalt);
+
+  border-radius:50%;
+
+  opacity:.4;
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+.filters{
+  display:flex;
+
+  gap:8px;
+
+  padding:0 20px 20px;
+
+  overflow-x:auto;
+
+  -webkit-overflow-scrolling:touch;
+
+  scrollbar-width:none;
+}
+
+
+.filters::-webkit-scrollbar{
+  display:none;
+}
+
+
+.chip{
+  flex:none;
+
+  padding:8px 16px;
+
+  border:1px solid var(--ink);
+
+  font-size:12px;
+
+  letter-spacing:.05em;
+
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  background:transparent;
+
+  color:var(--ink);
+
+  transition:.25s ease;
+}
+
+
+.chip:hover{
+  background:rgba(34,31,26,.08);
+}
+
+
+.chip.active{
+  background:var(--ink);
+
+  color:var(--sand);
+}
+
+
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
+
+.grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:16px;
+
+  padding:0 20px 60px;
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+.card{
+  background:var(--card);
+
+  position:relative;
+
+  padding-top:14px;
+
+  box-shadow:0 1px 0 var(--line);
+
+  overflow:hidden;
+}
+
+
+/* Lubang hang tag */
+
+.card::before{
+  content:'';
+
+  position:absolute;
+
+  top:-7px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:14px;
+  height:14px;
+
+  border-radius:50%;
+
+  background:var(--sand);
+
+  border:2px solid var(--ink);
+
+  z-index:3;
+}
+
+
+/* Garis perforasi */
+
+.card::after{
+  content:'';
+
+  position:absolute;
+
+  top:8px;
+
+  left:8%;
+  right:8%;
+
+  height:0;
+
+  border-top:1px dashed var(--line);
+
+  z-index:2;
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.swatch{
+  aspect-ratio:3 / 4;
+
+  margin:14px 12px 0;
+
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:flex-start;
+
+  padding:10px;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+.product-image{
+  position:absolute;
+
+  top:8%;
+  left:10%;
+
+  width:80%;
+  height:80%;
+
+  object-fit:contain;
+
+  z-index:1;
+
+  transition:transform .3s ease;
+}
+
+
+.card:hover .product-image{
+  transform:scale(1.05);
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+.tag-cat{
+  position:relative;
+
+  z-index:2;
+
+  font-size:9px;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+
+  background:var(--sand);
+
+  padding:3px 7px;
+
+  color:var(--ink);
+}
+
+
+/* =====================================================
+   PRODUCT INFO
+===================================================== */
+
+.info{
+  padding:12px 12px 16px;
+}
+
+
+.info h3{
+  font-family:'Fraunces',serif;
+
+  font-size:16px;
+
+  font-weight:500;
+
+  margin-bottom:3px;
+}
+
+
+.info .price{
+  font-size:14px;
+
+  color:var(--cobalt);
+
+  font-weight:500;
+}
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+.add-btn{
+  margin-top:10px;
+
+  width:100%;
+
+  background:transparent;
+
+  border:1px solid var(--ink);
+
+  padding:9px;
+
+  font-size:11px;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  color:var(--ink);
+
+  transition:.25s ease;
+}
+
+
+.add-btn:hover{
+  background:var(--ink);
+
+  color:var(--sand);
+}
+
+
+/* =====================================================
+   PROMO STRIP
+===================================================== */
+
+.strip{
+  background:var(--ink);
+
+  color:var(--sand);
+
+  padding:50px 20px;
+
+  text-align:center;
+}
+
+
+.strip img{
+  width:100%;
+
+  max-width:420px;
+
+  max-height:300px;
+
+  object-fit:cover;
+
+  margin:0 auto 30px;
+}
+
+
+.strip h2{
+  font-family:'Fraunces',serif;
+
+  font-weight:500;
+
+  font-size:24px;
+
+  max-width:360px;
+
+  margin:0 auto 10px;
+}
+
+
+.strip p{
+  font-size:13px;
+
+  opacity:.7;
+
+  max-width:320px;
+
+  margin:0 auto;
+
+  line-height:1.6;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+  padding:40px 20px 60px;
+
+  text-align:center;
+
+  font-size:12px;
+
+  opacity:.6;
+
+  line-height:1.8;
+}
+
+
+footer .fname{
+  font-family:'Fraunces',serif;
+
+  font-size:18px;
+
+  opacity:1;
+
+  margin-bottom:6px;
+}
+
+
+/* =====================================================
+   CART OVERLAY
+===================================================== */
+
+.drawer-overlay{
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,.4);
+
+  z-index:99;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:opacity .3s;
+}
+
+
+.drawer-overlay.show{
+  opacity:1;
+
+  pointer-events:auto;
+}
+
+
+/* =====================================================
+   CART DRAWER
+===================================================== */
+
+.drawer{
+  position:fixed;
+
+  top:0;
+
+  right:-100%;
+
+  width:86%;
+
+  max-width:360px;
+
+  height:100%;
+
+  background:var(--sand);
+
+  z-index:100;
+
+  transition:right .35s ease;
+
+  padding:24px 20px;
+
+  overflow-y:auto;
+
+  box-shadow:-5px 0 20px rgba(0,0,0,.08);
+}
+
+
+.drawer.show{
+  right:0;
+}
+
+
+.drawer h3{
+  font-family:'Fraunces',serif;
+
+  font-size:20px;
+
+  margin-bottom:18px;
+}
+
+
+/* =====================================================
+   CLOSE CART
+===================================================== */
+
+.close-drawer{
+  float:right;
+
+  background:none;
+
+  border:none;
+
+  font-size:26px;
+
+  cursor:pointer;
+
+  color:var(--ink);
+}
+
+
+/* =====================================================
+   CART ITEM
+===================================================== */
+
+.drawer-item{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+  padding:12px 0;
+
+  border-bottom:1px solid var(--line);
+
+  font-size:13px;
+}
+
+
+.drawer-item span:last-child{
+  color:var(--cobalt);
+
+  white-space:nowrap;
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.drawer-total{
+  margin-top:18px;
+
+  font-weight:500;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  font-family:'Fraunces',serif;
+
+  font-size:17px;
+}
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+.checkout-btn{
+  width:100%;
+
+  margin-top:16px;
+
+  background:var(--cobalt);
+
+  color:#fff;
+
+  border:none;
+
+  padding:13px;
+
+  letter-spacing:.1em;
+
+  text-transform:uppercase;
+
+  font-size:12px;
+
+  cursor:pointer;
+}
+
+
+.checkout-btn:hover{
+  opacity:.85;
+}
+
+
+.empty-cart{
+  font-size:13px;
+
+  opacity:.6;
+
+  margin-top:20px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (min-width:600px){
+
+  .hero{
+    max-width:900px;
+
+    margin:auto;
+  }
+
+
+  .filters{
+    max-width:900px;
+
+    margin:auto;
+  }
+
+
+  .grid{
+    grid-template-columns:repeat(3,1fr);
+
+    max-width:900px;
+
+    margin:auto;
+  }
+
+}
+
+
+@media (min-width:900px){
+
+  .grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+  <div class="logo">
+    byyy'<span>Store</span>
+  </div>
+
+
+  <button
+    class="cart-btn"
+    type="button"
+    onclick="toggleDrawer(true)"
+  >
+
+    Keranjang
+
+    <span
+      class="cart-count"
+      id="cartCount"
+    >
+      0
+    </span>
+
+  </button>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+  <div class="hero-line"></div>
+
+
+  <p class="eyebrow">
+    Koleksi Musim Kemarau
+  </p>
+
+
+  <h1 class="display">
+
+    Outfit Mendaki,
+
+    <em>
+      dibuat untuk hiking santai
+    </em>
+
+  </h1>
+
+
+  <p>
+
+    Bahan ori , bahan berkualitas,
+    harga jujur. Setiap produk diberi label
+    gantung — cara kami menandai keaslian
+    setiap jahitan.
+
+  </p>
+
+
+  <a
+    href="#produk"
+    class="cta"
+  >
+
+    Lihat Koleksi
+
+  </a>
+
+</section>
+
+
+<!-- =====================================================
+     FILTER
+===================================================== -->
+
+<div
+  class="filters"
+  id="filters"
+>
+
+  <button
+    class="chip active"
+    type="button"
+    data-cat="all"
+  >
+    Semua
+  </button>
+  
+  <button
+    class="chip"
+    type="button"
+    data-cat="pria wanita"
+  >
+    Pria Wanita
+  </button>
+
+
+  <button
+    class="chip"
+    type="button"
+    data-cat="pria"
+  >
+    Pria
+  </button>
+
+
+  <button
+    class="chip"
+    type="button"
+    data-cat="wanita"
+  >
+    Wanita
+  </button>
+
+
+  <button
+    class="chip"
+    type="button"
+    data-cat="aksesoris"
+  >
+    Aksesoris
+  </button>
+
+</div>
+
+
+<!-- =====================================================
+     PRODUCT GRID
+===================================================== -->
+
+<main
+  class="grid"
+  id="produk"
+></main>
+
+
+<!-- =====================================================
+     PROMO
+===================================================== -->
+
+<section class="strip">
+
+  <img
+    src="images/6.jpg"
+    alt="Koleksi byyy'Store"
+    loading="lazy"
+  >
+
+
+  <h2>
+
+    Gratis ongkir minimum
+    belanja Rp200.000
+
+  </h2>
+
+
+  <p>
+
+    Pengiriman ke seluruh Indonesia
+    dalam 2–5 hari kerja.
+    Retur mudah dalam 14 hari.
+
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <p class="fname">
+    byyy'Store
+  </p>
+
+
+  <p>
+
+    Jl. Rahtawu Raya Gg. 21, Kudus
+    &nbsp;•&nbsp;
+    Senin-Minggu 09.00–20.00
+
+  </p>
+
+
+  <p style="margin-top:10px;">
+
+    WhatsApp: 0877-6374-9733
+    &nbsp;•&nbsp;
+    @byyy'Store
+
+  </p>
+
+
+  <p style="margin-top:20px; opacity:.5;">
+
+    Contoh halaman toko —
+    dibuat oleh bysxhw
+
+  </p>
+
+</footer>
+
+
+<!-- =====================================================
+     CART OVERLAY
+===================================================== -->
+
+<div
+  class="drawer-overlay"
+  id="overlay"
+  onclick="toggleDrawer(false)"
+></div>
+
+
+<!-- =====================================================
+     CART DRAWER
+===================================================== -->
+
+<div
+  class="drawer"
+  id="drawer"
+>
+
+  <button
+    class="close-drawer"
+    type="button"
+    onclick="toggleDrawer(false)"
+    aria-label="Tutup keranjang"
+  >
+
+    &times;
+
+  </button>
+
+
+  <h3>
+    Keranjang Belanja
+  </h3>
+
+
+  <div id="drawerItems">
+
+    <p class="empty-cart">
+      Keranjang masih kosong.
+    </p>
+
+  </div>
+
+
+  <div
+    class="drawer-total"
+    id="drawerTotal"
+    style="display:none;"
+  >
+
+    <span>
+      Total
+    </span>
+
+    <span id="totalPrice">
+      Rp0
+    </span>
+
+  </div>
+
+
+  <button
+    class="checkout-btn"
+    id="checkoutBtn"
+    type="button"
+    style="display:none;"
+    onclick="checkout()"
+  >
+
+    Checkout
+
+  </button>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   DATA PRODUK
+===================================================== */
+
+const products = [
+
+  {
+    id:1,
+    cat:'pria',
+    name:'Hydropack Antarestar',
+    price:179000,
+    color:'#C7B49A',
+    image:'images/3.png'
+  },
+
+
+  {
+    id:2,
+    cat:'wanita',
+    name:'Baselayer cewek Eiger',
+    price:190000,
+    color:'#D9BFC4',
+    image:'images/5.png'
+  },
+
+
+  {
+    id:3,
+    cat:'pria wanita',
+    name:'Jaket Gropcore Credifox',
+    price:289000,
+    color:'#9CAF9A',
+    image:'images/4.png'
+  }
+
+];
+
+/* =====================================================
+   ELEMENT
+===================================================== */
+
+const grid =
+  document.getElementById('produk');
+
+
+let cart = [];
+
+
+/* =====================================================
+   FORMAT HARGA
+===================================================== */
+
+function fmt(n){
+
+  return 'Rp' +
+    n.toLocaleString('id-ID');
+
+}
+
+
+/* =====================================================
+   RENDER PRODUK
+===================================================== */
+
+function renderGrid(filter='all'){
+
+  grid.innerHTML='';
+
+
+  products
+
+    .filter(
+      p =>
+        filter === 'all' ||
+        p.cat === filter
+    )
+
+
+    .forEach(p => {
+
+      const card =
+        document.createElement('article');
+
+
+      card.className='card';
+
+
+      card.innerHTML = `
+
+        <div
+          class="swatch"
+          style="background:${p.color}22;"
+        >
+
+          <img
+            src="${p.image}"
+            alt="${p.name}"
+            class="product-image"
+            loading="lazy"
+          >
+
+
+          <span class="tag-cat">
+
+            ${p.cat}
+
+          </span>
+
+        </div>
+
+
+        <div class="info">
+
+          <h3>
+
+            ${p.name}
+
+          </h3>
+
+
+          <div class="price">
+
+            ${fmt(p.price)}
+
+          </div>
+
+
+          <button
+            class="add-btn"
+            type="button"
+            onclick="addToCart(${p.id})"
+          >
+
+            + Keranjang
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      grid.appendChild(card);
+
+    });
+
+}
+
+
+/* Render awal */
+
+renderGrid();
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+document
+  .getElementById('filters')
+  .addEventListener(
+    'click',
+    e => {
+
+      if(
+        !e.target.classList.contains('chip')
+      ){
+
+        return;
+
+      }
+
+
+      document
+        .querySelectorAll('.chip')
+        .forEach(c =>
+          c.classList.remove('active')
+        );
+
+
+      e.target.classList.add('active');
+
+
+      renderGrid(
+        e.target.dataset.cat
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart(id){
+
+  const p =
+    products.find(
+      x => x.id === id
+    );
+
+
+  if(!p){
+
+    return;
+
+  }
+
+
+  cart.push(p);
+
+
+  updateCart();
+
+
+  toggleDrawer(true);
+
+}
+
+
+/* =====================================================
+   UPDATE CART
+===================================================== */
+
+function updateCart(){
+
+  document
+    .getElementById('cartCount')
+    .textContent = cart.length;
+
+
+  const wrap =
+    document.getElementById(
+      'drawerItems'
+    );
+
+
+  const totalEl =
+    document.getElementById(
+      'drawerTotal'
+    );
+
+
+  const btn =
+    document.getElementById(
+      'checkoutBtn'
+    );
+
+
+  /* Jika kosong */
+
+  if(
+    cart.length === 0
+  ){
+
+    wrap.innerHTML = `
+      <p class="empty-cart">
+        Keranjang masih kosong.
+      </p>
+    `;
+
+
+    totalEl.style.display='none';
+
+    btn.style.display='none';
+
+    return;
+
+  }
+
+
+  /* Item keranjang */
+
+  wrap.innerHTML =
+
+    cart.map(p => `
+
+      <div class="drawer-item">
+
+        <span>
+          ${p.name}
+        </span>
+
+        <span>
+          ${fmt(p.price)}
+        </span>
+
+      </div>
+
+    `).join('');
+
+
+  /* Total */
+
+  const total =
+    cart.reduce(
+      (sum,p) =>
+        sum + p.price,
+      0
+    );
+
+
+  document
+    .getElementById('totalPrice')
+    .textContent = fmt(total);
+
+
+  totalEl.style.display='flex';
+
+  btn.style.display='block';
+
+}
+
+
+/* =====================================================
+   TOGGLE CART
+===================================================== */
+
+function toggleDrawer(open){
+
+  document
+    .getElementById('drawer')
+    .classList
+    .toggle(
+      'show',
+      open
+    );
+
+
+  document
+    .getElementById('overlay')
+    .classList
+    .toggle(
+      'show',
+      open
+    );
+
+
+  document.body.style.overflow =
+    open ? 'hidden' : '';
+
+}
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+const STORE_WHATSAPP = '6287763749733';
+
+function checkout(){
+  if( cart.length === 0 ){
+    alert('Keranjang masih kosong.');
+    return;
+  }
+  const lines = cart.map((p,i)=> `${i+1}. ${p.name} — ${fmt(p.price)}`).join('\n');
+  const total = cart.reduce((sum,p) => sum + p.price, 0);
+  const message =
+    `Halo byyy'Store, saya mau pesan:\n\n${lines}\n\nTotal: ${fmt(total)}\n\nMohon info langkah selanjutnya. Terima kasih.`;
+  const url = `https://wa.me/${STORE_WHATSAPP}?text=${encodeURIComponent(message)}`;
+  window.location.href = url;
+}
+
+
+</script>
+
+</body>
+
+</html>
